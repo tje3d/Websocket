@@ -1,0 +1,9 @@
+{
+  "name": "tje3d-websocket-manager",
+  "version": "1.0.0",
+  "description": "Deadly simple Websocket wrapper",
+  "main": "index.js",
+  "repository": "git@github.com:tje3d/Websocket.git",
+  "author": "Moein <tje3d@yahoo.com>",
+  "license": "MIT"
+}

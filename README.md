@@ -1,7 +1,7 @@
 ## Reconnectable Websocket Wrapper
 
 # Installation
-> yarn install websocketmanager
+> yarn install tje3d-websocket-manager
 
 # Usage
 ```js
