@@ -26,12 +26,15 @@ WebsocketManager.addEventListener('error', evt => {
     console.log('Connection error');
 });
 
-WebsocketManager.addEventListener('close', () => {
+const closeFunc = () => {
     console.log('Disconnected');
 
     // try to connect after disconnection
     setTimeout(()=>{
         WebsocketManager.reconnect();
     }, 2000);
-});
+};
+
+WebsocketManager.addEventListener('close', closeFunc);
+WebsocketManager.removeEventListener('close', closeFunc);
 ```

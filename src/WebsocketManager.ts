@@ -153,6 +153,20 @@ class WebSocketManager
         this.socket.addEventListener(type, func.bind(this));
     }
 
+    removeEventListener(type: string, func: Function): void {
+        this.listeners[type].forEach((funcArray: Function, index: number) => {
+            if (funcArray === func) {
+                this.listeners[type].splice(index, 1);
+            }
+        });
+
+        if (this.socket == null) {
+            return;
+        }
+
+        this.socket.removeEventListener(type, func.bind(this));
+    }
+
     attachListeners(): void {
         Object.keys(this.listeners).forEach(type => {
             this.listeners[type].forEach(func => {
