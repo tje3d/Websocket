@@ -113,6 +113,18 @@ var WebSocketManager = /** @class */ (function () {
         }
         this.socket.addEventListener(type, func.bind(this));
     };
+    WebSocketManager.prototype.removeEventListener = function (type, func) {
+        var _this = this;
+        this.listeners[type].forEach(function (funcArray, index) {
+            if (funcArray === func) {
+                _this.listeners[type].splice(index, 1);
+            }
+        });
+        if (this.socket == null) {
+            return;
+        }
+        this.socket.removeEventListener(type, func.bind(this));
+    };
     WebSocketManager.prototype.attachListeners = function () {
         var _this = this;
         Object.keys(this.listeners).forEach(function (type) {
